@@ -76,5 +76,15 @@ export class HeroService {
       catchError(this.handleError<Hero>('deleteHero'))
     );
   }
+
+  searchHeros(term: string): Observable<Hero>{
+    if(!term.trim()){
+      return of([] as any); //空の配列を返す。
+    }
+    return this.http.get<Hero>(`${this.heroesUrl}/?name=${term}`).pipe(
+      tap(_ => this.log(`found heroes matching "${term}"`)),
+      catchError(this.handleError<Hero>('searchHeroes'))
+    );
+  }
   
 }
