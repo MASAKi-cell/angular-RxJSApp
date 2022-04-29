@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Hero } from './hero';
+import { Hero } from './model/hero';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 @Injectable({
   providedIn: 'root',
@@ -22,9 +23,13 @@ export class InMemoryDataService implements InMemoryDbService {
     return {heroes};
   }
 
-  // Overrides the genId method to ensure that a hero always has an id.
-  // Math.max()メゾット 引数の内最大値を返す。
-  genId(heroes: Hero[]): number {
+  /**
+   * IDを取得する。
+   * @param {Hero[]}heroes 
+   * @returns {number}
+   */
+  getId(heroes: Hero[]): number {
     return heroes.length > 0 ? Math.max(...heroes.map(hero => hero.id)) + 1 : 11;
   }
+  
 }
