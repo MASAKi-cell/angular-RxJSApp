@@ -6,15 +6,22 @@ import { Injectable } from '@angular/core';
 export class MessageService {
   public messages: string[] = [];
 
-  constructor() {
+  constructor() {}
 
-  }
-
-  add(message: string){
+  /**
+   * メッセージを追加する。
+   * @param message 
+   * @returns {void}
+   */
+  add(message: string): void{
     this.messages.push(message);
   }
 
-  clear(){
+  /**
+   * メッセージを空にする。
+   * @returns {void}
+   */
+  clear(): void{
     this.messages = [];
   }
 

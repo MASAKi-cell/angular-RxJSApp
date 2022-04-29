@@ -7,7 +7,13 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
   providedIn: 'root',
 })
 export class InMemoryDataService implements InMemoryDbService {
-  createDb(){
+
+
+  /**
+   * アテでデータベースを構築する。
+   * @returns { heroes: { id: number; name: string; }[]; }
+   */
+  createDb(): { heroes: { id: number; name: string; }[]; }{
     const heroes = [
       { id: 11, name: 'Dr Nice' },
       { id: 12, name: 'Narco' },
