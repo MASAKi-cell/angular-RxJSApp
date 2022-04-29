@@ -10,7 +10,6 @@ import { MessageService } from '../message.service';
   styleUrls: ['./heroes.component.scss']
 })
 export class HeroesComponent implements OnInit {
-
   public heros: Hero[] = [];
   public selectHeros!: Hero;
 
